@@ -1,4 +1,5 @@
 # [十道簡單的演算法](https://segmentfault.com/a/1190000014082596)
+# PHP 版
 ## 1. `1-n` 階乘
 ``` 
 function factorial($input) {
@@ -95,5 +96,31 @@ var_dump(stringCompare('Hello World', 'World Hello'));
 ```
 ## 9. 判斷某個數字是否為 2 的倍數
 ```
-
+function checkEven($numeric) {
+    if ($numeric === 1 || $numeric === 0) {
+        return false;
+    }
+    return ($numeric ^ ($numeric + 1)) === 1;
+}
 ```
+## 10. 判斷數字是否為 ugly number (分解出來的質因數只有 2, 3, 5 這三個數字）
+```
+function isUgly($numeric) {
+    if($numeric <= 1) {
+        return false;
+    }
+
+     while ($numeric % 2 == 0) {
+        $numeric = $numeric / 2;
+    }
+    while ($numeric % 3 == 0) {
+        $numeric = $numeric / 3;
+    }
+    while ($numeric % 5 == 0) {
+        $numeric = $numeric / 5;
+    }
+
+    return $numeric === 1;
+}
+```
+---
