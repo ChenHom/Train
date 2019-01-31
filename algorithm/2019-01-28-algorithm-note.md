@@ -110,7 +110,7 @@ function isUgly($numeric) {
         return false;
     }
 
-     while ($numeric % 2 == 0) {
+    while ($numeric % 2 == 0) {
         $numeric = $numeric / 2;
     }
     while ($numeric % 3 == 0) {
