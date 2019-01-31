@@ -94,6 +94,5 @@ function alphaCompare($str) {
 var_dump(stringCompare('Hello World', 'World Hello'));
 ```
 ## 9. 判斷某個數字是否為 2 的倍數
-```
-
-```
+只能用求餘數的方式算
+<!-- 用 & 的方式出來的值不對，滿奇怪 -->
