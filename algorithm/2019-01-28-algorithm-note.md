@@ -126,6 +126,21 @@ function isUgly($numeric) {
 ---
 # C# 版
 ## 1. `1-n` 階乘
+```
+int factorial(int numeric)
+{
+    int tmp = numeric - 1;
+
+    if (tmp == 1)
+    {
+        return numeric;
+    }
+    else
+    {
+        return this.factorial(tmp) * numeric;
+    }
+}
+```
 ## 2. 二維陣列每列最小值
 ## 3. 求"1！+4！(2的平方)+9！(3的平方)+...+n的值
 ## 4. 陣列對角線值之和
