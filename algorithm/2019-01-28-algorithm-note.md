@@ -45,24 +45,10 @@ echo $sum
 `不知怎麼弄…`
 ## 6. 猴子吃桃子問題
 ```
-// 方法 1
-function monkeyQue($day) {
-    if($day === 1) {
-        // echo "day 1 : 1" . PHP_EOL;
-        return 1;
-    } else {
-        $count = 2 * monkeyQue($day - 1) + 2;
-        echo "day {$day} : {$count}" . PHP_EOL;
-        return $count;
-    }
-}
-echo monkeyQue(10);
-
-// 方法 2
 function monkeyQue($day) {
     $peach = 1;
     for($i = 0 ; $i < $day ; $i++) {
-        $a= ($peach + 1) * 2;
+        $peach= ($peach + 1) * 2;
     }
     return $peach;
 }
@@ -123,7 +109,9 @@ function isUgly($numeric) {
     return $numeric === 1;
 }
 ```
+
 ---
+
 # C# 版
 ## 1. `1-n` 階乘
 ```
@@ -142,19 +130,102 @@ int factorial(int numeric)
 }
 ```
 ## 2. 二維陣列每列最小值
+```
+using System.Collections.Generic;
+using System.Linq;
+
+static void Main(string[] args)
+{
+    var method2 = new Program();
+    List<int[]> twoArray = new List<int[]> {
+            new int[] {1, 23, 43, 97, 345},
+            new int[] {190, 123, 3, 917, 345},
+            new int[] {981, 243, 3, 97, 345},
+            new int[] {121, 283, 4903, 15, 345},
+            new int[] {2331, 2, 42, 354, 67545},
+        };
+    method2.minArray(twoArray);
+}
+
+void minArray(List<int[]> twoArray)
+{
+    foreach (var item in twoArray)
+    {
+        Console.WriteLine(item.Min());
+    }
+}
+```
 ## 3. 求"1！+4！(2的平方)+9！(3的平方)+...+n的值
 ## 4. 陣列對角線值之和
+```
+void diagonal(List<int[]> twoArray)
+{
+    int sum = 0;
+    for (int i = 0; i < twoArray.Count; i++)
+    {
+        sum += twoArray[i][i];
+    }
+    Console.WriteLine($"sum:{sum}");
+}
+```
 ## 5. 列出楊輝三角形
 ## 6. 猴子吃桃子問題
 ```
+void monkeyQue(int day)
+{
+    int peach = 1;
+    for (int i = 0; i < day; i++)
+    {
+        peach = (peach + 1) * 2;
+    }
+    Console.WriteLine($"peach:{peach}");
+}
 ```
 ## 7. 計算單字的個數
 ```
+void countWord(string str)
+{
+    Console.WriteLine($"Word count:{str.Split(" ").Count()}");
+}
 ```
 ## 8. 判斷字母是否完全一樣(不管順序)
 ```
+void stringCompare(string str1, string str2)
+{
+    Console.WriteLine(this.characterCalculator(str1) == this.characterCalculator(str2));
+}
+
+private int characterCalculator(string str)
+{
+    byte[] result = Encoding.ASCII.GetBytes(str);
+    return result.Sum(i => i);
+}
 ```
 ## 9. 判斷某個數字是否為 2 的倍數
 ```
+void isEven(int numeric)
+{
+    Console.WriteLine($"{(numeric % 2) == 0}");
+}
 ```
 ## 10. 判斷數字是否為 ugly number (分解出來的質因數只有 2, 3, 5 這三個數字）
+```
+void isUglyNumber(int numeric)
+{
+    bool result = false;
+    int tmp = numeric;
+    if(tmp > 0) {
+        while (tmp % 2 == 0) {
+            tmp = tmp / 2;
+        }
+        while (tmp % 3 == 0) {
+            tmp = tmp / 3;
+        }
+        while (tmp % 5 == 0) {
+            tmp = tmp / 5;
+        }
+    }
+    result = tmp == 1;
+    Console.WriteLine($"Numeric {numeric} {(result ?"": "not")} is ugly number");
+}
+```
