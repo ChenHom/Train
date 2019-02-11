@@ -55,5 +55,45 @@ print_r(moveZero([3, 2, 4, 6, 0, 5, 0, 7]));
 ```
 ## 5. 找出陣列中只出現一次的數字
 ```
+/**
+ * 用 XOR 的方式
+ *
+ */
+function other()
+{
+    $nums = [1, 2, 3, 4, 4, 5, 5, 5, 6, 6];
+    $k = $nums[0];
+    $numSize = count($nums);
+    for ($i = 1; $i < $numSize; $i++) {
+        $k = ($k ^ $nums[$i]);
+    }
+    print_r($k);
+}
+
+function singleNumber($numbers)
+{
+    foreach ($numbers as $value) {
+        if (! isset($more[$value]) && isset($one[$value])) {
+            unset($one[$value]);
+            $more[$value] = 1;
+        } else if (! isset($more[$value]) && ! isset($one[$value])) {
+            $one[$value] = 1;
+        }
+    }
+    return array_keys($one);
+}
+print_r(singleNumber([1, 2, 3, 4, 4, 5, 5, 5, 6, 6]));
+```
+## 6. 畫三角形
+```
+function drawStar()
+{
+    for ($i = 1; $i <= 4; $i++) {
+        $star = implode('', array_fill(0, ($i * 2) - 1, '*'));
+        $line = str_pad($star, 7, ' ', STR_PAD_BOTH);
+        echo $line . PHP_EOL;
+    }
+}
+drawStar();
 ```
 # C# 版

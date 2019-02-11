@@ -50,12 +50,23 @@ function moveZero($numbers)
 function singleNumber($numbers)
 {
     foreach ($numbers as $value) {
-        if (isset($tmp[$value])) {
-            unset($tmp[$value]);
-        } else {
-            $tmp[$value] = 1;
+        if (! isset($more[$value]) && isset($one[$value])) {
+            unset($one[$value]);
+            $more[$value] = 1;
+        } else if (! isset($more[$value]) && ! isset($one[$value])) {
+            $one[$value] = 1;
         }
     }
-    return array_keys($tmp);
+    return array_keys($one);
 }
-print_r(singleNumber([1, 2, 3, 4, 4, 5, 5, 5, 6, 6]));
+// print_r(singleNumber([1, 2, 3, 4, 4, 5, 5, 5, 6, 6]));
+
+function drawStar()
+{
+    for ($i = 1; $i <= 4; $i++) {
+        $star = implode('', array_fill(0, ($i * 2) - 1, '*'));
+        $line = str_pad($star, 7, ' ', STR_PAD_BOTH);
+        echo $line . PHP_EOL;
+    }
+}
+// drawStar();
